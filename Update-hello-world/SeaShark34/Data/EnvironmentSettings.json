@@ -1,0 +1,10 @@
+﻿{
+    "Environments": [
+        {
+            "Description": "Prod",
+            "Active": "1",
+            "Browsers": [ "Firefox" ],
+            "Url": "http://xpanxion.com/"
+        }
+    ]
+}
