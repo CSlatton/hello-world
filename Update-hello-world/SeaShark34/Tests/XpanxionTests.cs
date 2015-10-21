@@ -51,7 +51,9 @@ namespace SimpleCSharpSelenium.Tests
 
                     //Verify the page we expected loaded                 
                     TestRunner.XpanxionHomePage.VerifyThisPageLoaded();
-                    TestRunner.XpanxionHomePage.ClickLinks();                  
+                    TestRunner.XpanxionHomePage.ClickLinks();
+
+                   
             }
         
         }

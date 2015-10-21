@@ -25,16 +25,15 @@ namespace SimpleCSharpSelenium.Pages
        //find the element 
        public void ClickLinks()
        {
-      
            ClickAboutLink();
-         
+           VerifyThisPageLoaded();
            ClickApproach();
-          
+           VerifyThisPageLoaded();
            ClickServices();
-           
+           VerifyThisPageLoaded();
            ClickCareers();
-           
-           ClickContact();
+           VerifyThisPageLoaded();
+           ClickContact(); 
            
        }
 
@@ -86,6 +85,31 @@ namespace SimpleCSharpSelenium.Pages
             // make sure this is not empty 
             Assert.IsNotNull(ErrorClassTest());
         }
+
+       public void AboutVerify()
+        {
+            Assert.IsTrue(AboutTest());
+        }
+
+       public void ApproachVerify()
+       {
+           Assert.IsTrue(approachLinkTest());
+       }
+
+       public void ServicesVerify()
+       {
+           Assert.IsTrue(servicesLinkTest());
+       }
+
+       public void CareersVerify()
+       {
+           Assert.IsTrue(careersLinkTest());
+       }
+
+       public void ContactVerify()
+       {
+           Assert.IsTrue(contactLinkTest());
+       }
 
         #endregion
 
@@ -161,70 +185,119 @@ namespace SimpleCSharpSelenium.Pages
           
        }
 
-      // end of lazy code
-
         #endregion
 
         #region Methods
 
+       public bool AboutTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/about.html"))
+               
+               return true;
+           else
+               return false;
+       }
+
+       public bool approachLinkTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/approach.html"))
+
+               return true;
+           else
+               return false;
+       }
+
+       public bool servicesLinkTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/services.html"))
+
+               return true;
+           else
+               return false;
+       }
+
+       public bool careersLinkTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/careers.html"))
+
+               return true;
+           else
+               return false;
+       }
+
+       public bool contactLinkTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/contact.html"))
+
+               return true;
+           else
+               return false;
+       }
+
        public void ClickAboutLink()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(AboutLink());
+           action.DoubleClick(AboutLink()).Build().Perform();
+           AboutTest();
        }
 
        public void ClickApproach()
        {
+         //  AboutVerify();
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(ApproachLink());
+           action.DoubleClick(ApproachLink()).Build().Perform();
+           ApproachVerify();
        }
 
        public void ClickServices()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(ServicesLink());
+           action.DoubleClick(ServicesLink()).Build().Perform();
+           ServicesVerify();
        }
 
        public void ClickCareers()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(CareersLink());
+           action.DoubleClick(CareersLink()).Build().Perform();
+           CareersVerify();
        }
 
        public void ClickContact()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(ContactLink());
+           action.DoubleClick(ContactLink()).Build().Perform();
+           ContactVerify();
        }
 
        public void ClickFooterAbout()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(FooterAbout());
+           action.DoubleClick(FooterAbout()).Build().Perform();
        }
 
        public void ClickFooterOurStory()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(FooterOurStory());
+           action.DoubleClick(FooterOurStory()).Build().Perform();
        }
 
        public void ClickFooterLocation()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(FooterLocations());
+           action.DoubleClick(FooterLocations()).Build().Perform();
        }
 
        public void ClickFooterMission()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(FooterMission());
+           action.DoubleClick(FooterMission()).Build().Perform();
        }
 
        public void ClickFooterNews()
        {
            Actions action = new Actions(TestRunner.Driver);
-           action.DoubleClick(FooterNews());
+           action.DoubleClick(FooterNews()).Build().Perform();
        }
 
 

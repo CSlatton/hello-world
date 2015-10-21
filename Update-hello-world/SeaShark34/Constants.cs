@@ -28,6 +28,7 @@ namespace SimpleCSharpSelenium
         public static string GOOGLEURL = @"https://google.com";
         public const string YAHOO_URL = "http://www.yahoo.com";
         public static string XPANXION = "https://xpanxion.com";
+        public const string  XPANXIONABOUTLINK = "http://xpanxion.com/about.html";
         public static string ACTIVE = "1";
         public const string GOOGLE_TEST = "Google Tests";
         public const string XPANXION_TEST = "Xpanxion Test";
