@@ -40,13 +40,13 @@ namespace SimpleCSharpSelenium.Pages
        public void ClickFooterLinks()
        {
            ClickFooterAbout();
-          
+           Wait();
            ClickFooterLocation();
-         
+           Wait();
            ClickFooterMission();
-           
+           Wait();
            ClickFooterNews();
-           
+           Wait();
            ClickFooterOurStory();
           
        }
@@ -109,6 +109,21 @@ namespace SimpleCSharpSelenium.Pages
        public void ContactVerify()
        {
            Assert.IsTrue(contactLinkTest());
+       }
+
+       public void LocationsVerify()
+       {
+           Assert.IsTrue(locationsLinkTest());
+       }
+
+       public void missionVerify()
+       {
+           Assert.IsTrue(missionLinkTest());
+       }
+
+       public void newsVerify()
+       {
+           Assert.IsTrue(newsLinkTest());
        }
 
         #endregion
@@ -189,6 +204,11 @@ namespace SimpleCSharpSelenium.Pages
 
         #region Methods
 
+       public void Wait()
+       {
+           TestRunner.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(6));
+       }
+
        public bool AboutTest()
        {
            if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/about.html"))
@@ -228,6 +248,33 @@ namespace SimpleCSharpSelenium.Pages
        public bool contactLinkTest()
        {
            if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/contact.html"))
+
+               return true;
+           else
+               return false;
+       }
+
+       public bool locationsLinkTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/locations.html"))
+
+               return true;
+           else
+               return false;
+       }
+
+       public bool missionLinkTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/mission.html"))
+
+               return true;
+           else
+               return false;
+       }
+
+       public bool newsLinkTest()
+       {
+           if (TestRunner.Driver.Url.ToString().Equals("http://xpanxion.com/news.html"))
 
                return true;
            else
@@ -274,6 +321,7 @@ namespace SimpleCSharpSelenium.Pages
        {
            Actions action = new Actions(TestRunner.Driver);
            action.DoubleClick(FooterAbout()).Build().Perform();
+           AboutVerify();
        }
 
        public void ClickFooterOurStory()
@@ -286,18 +334,21 @@ namespace SimpleCSharpSelenium.Pages
        {
            Actions action = new Actions(TestRunner.Driver);
            action.DoubleClick(FooterLocations()).Build().Perform();
+           LocationsVerify();
        }
 
        public void ClickFooterMission()
        {
            Actions action = new Actions(TestRunner.Driver);
            action.DoubleClick(FooterMission()).Build().Perform();
+           missionVerify();
        }
 
        public void ClickFooterNews()
        {
            Actions action = new Actions(TestRunner.Driver);
            action.DoubleClick(FooterNews()).Build().Perform();
+           newsVerify();
        }
 
 
